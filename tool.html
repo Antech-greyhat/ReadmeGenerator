@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>README.forge — GitHub Profile Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tool.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <div class="logo-icon">R</div>
+    README<span>.forge</span>
+  </div>
+  <div class="header-actions">
+    <div id="status-indicator" class="status-indicator">
+      <span class="status-dot" id="status-dot"></span>
+      <span id="status-text">Ready</span>
+    </div>
+    <button class="btn btn-ghost" id="copy-btn" type="button">⎘ Copy</button>
+    <button class="btn btn-accent" id="export-btn" type="button">↓ Export .md</button>
+  </div>
+</header>
+
+<!-- APP -->
+<div class="app">
+
+  <!-- LEFT PANEL -->
+  <aside class="panel-left">
+
+    <!-- URL Input -->
+    <div class="panel-section">
+      <div class="section-label">GitHub Profile URL</div>
+      <div class="url-input-wrap">
+        <input type="text" class="url-input" id="gh-url"
+          placeholder="github.com/username">
+        <button class="fetch-btn" id="fetch-btn" type="button" title="Fetch profile">
+          <span>→</span>
+        </button>
+      </div>
+      <div class="loading-bar" id="loading-bar"></div>
+      <div class="error-msg" id="error-msg"></div>
+    </div>
+
+    <!-- Profile Card -->
+    <div class="panel-section" id="profile-section" hidden>
+      <div class="section-label">Profile Fetched</div>
+      <div class="profile-card show" id="profile-card"></div>
+    </div>
+
+    <!-- Scrollable controls -->
+    <div class="panel-scroll">
+
+      <!-- Customize -->
+      <div class="panel-section" id="customize-section" hidden>
+        <div class="section-label">Customize</div>
+        <div class="custom-field">
+          <label>Display Name</label>
+          <input type="text" class="custom-input" id="c-name">
+        </div>
+        <div class="custom-field">
+          <label>Tagline / Title</label>
+          <input type="text" class="custom-input" id="c-tagline" placeholder="e.g. Full-Stack Engineer">
+        </div>
+        <div class="custom-field">
+          <label>Bio</label>
+          <textarea class="custom-textarea" id="c-bio"></textarea>
+        </div>
+        <div class="custom-field">
+          <label>Location</label>
+          <input type="text" class="custom-input" id="c-location">
+        </div>
+        <div class="custom-field">
+          <label>Website</label>
+          <input type="text" class="custom-input" id="c-website">
+        </div>
+      </div>
+
+      <!-- Sections -->
+      <div class="panel-section" id="sections-section" hidden>
+        <div class="section-label section-label-row">
+          <span>Sections</span>
+          <span class="section-count" id="section-count">6 active</span>
+        </div>
+        <div id="section-toggles"></div>
+      </div>
+
+      <!-- Languages -->
+      <div class="panel-section" id="langs-section" hidden>
+        <div class="section-label">Tech Stack (click to toggle)</div>
+        <div class="lang-tags" id="lang-tags"></div>
+      </div>
+
+    </div><!-- /panel-scroll -->
+
+  </aside>
+
+  <!-- CENTER: PREVIEW -->
+  <main class="panel-center">
+    <div class="preview-tabs">
+      <div class="preview-tab active" data-tab="preview">⬡ Preview</div>
+      <div class="preview-tab" data-tab="raw">⌘ Markdown</div>
+    </div>
+    <div class="preview-body">
+      <div id="preview-pane" class="active">
+        <div class="empty-state" id="empty-state">
+          <div class="empty-icon">◈</div>
+          <div class="empty-title">Your README awaits</div>
+          <div class="empty-desc">Paste a GitHub profile URL and hit → to generate a stunning profile README instantly.</div>
+        </div>
+        <div class="gh-preview" id="gh-preview" hidden></div>
+      </div>
+      <div id="raw-pane">
+        <pre id="raw-code"></pre>
+      </div>
+    </div>
+  </main>
+
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <span class="toast-icon" id="toast-icon">✓</span>
+  <span id="toast-msg">Done!</span>
+</div>
+
+<script src="tool.js"></script>
+</body>
+</html>
