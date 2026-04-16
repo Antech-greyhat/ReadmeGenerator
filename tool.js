@@ -326,7 +326,7 @@ function regenerate() {
 
   lines.push('---');
   lines.push('');
-  lines.push(`<p align="center">Made with ❤️ using <a href="https://github.com">GitHub README Builder</a></p>`);
+  lines.push(`<p align="center">Made with ❤️by <a href="https://github.com/Antech-greyhat">Antech-greyhat</a></p>`);
 
   generatedMarkdown = lines.join('\n');
   renderPreview();
