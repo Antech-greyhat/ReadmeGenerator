@@ -27,6 +27,17 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
 
 [hidden] { display: none !important; }
 
+/* controls became buttons for keyboard access, undo the paint defaults */
+.preview-tab, .toggle, .lang-tag, .reorder-btn {
+  background: none; border: none; font: inherit; color: inherit;
+  cursor: pointer; text-align: left;
+}
+:where(button, select, input, textarea, summary):focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 2px;
+}
+
+.hint { color: var(--text-dim); font-weight: 400; text-transform: none; letter-spacing: 0; }
+
 /* ── HEADER ── */
 header {
   height: var(--header);
@@ -100,7 +111,8 @@ header {
   padding: 16px;
   border-bottom: 1px solid var(--border);
 }
-.panel-section:last-child { border-bottom: none; flex: 1; overflow-y: auto; }
+/* .panel-scroll is the scroller now, a nested overflow here would trap content */
+.panel-scroll > .panel-section:last-child { border-bottom: none; }
 
 .section-label {
   font-family: var(--mono);
@@ -167,14 +179,22 @@ header {
 .profile-meta strong { color: var(--text-muted); font-weight: 500; }
 
 /* Sections Control */
-.section-toggle {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 8px 0; border-bottom: 1px solid var(--border);
-  cursor: pointer;
+.section-toggle-row {
+  display: flex; align-items: center; gap: 4px;
+  padding: 6px 0; border-bottom: 1px solid var(--border);
 }
-.section-toggle:last-child { border-bottom: none; }
-.section-toggle-label { display: flex; align-items: center; gap: 8px; font-size: 13px; }
-.section-icon { font-size: 14px; width: 20px; text-align: center; }
+.section-toggle-row:last-child { border-bottom: none; }
+.section-toggle-label { display: flex; align-items: center; gap: 8px; font-size: 13px; flex: 1; min-width: 0; }
+.section-toggle-label span:last-child { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.section-icon { font-size: 14px; width: 18px; text-align: center; flex-shrink: 0; }
+
+.reorder-btn {
+  width: 18px; height: 20px; border-radius: 4px;
+  color: var(--text-dim); font-size: 9px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.reorder-btn:hover:not(:disabled) { background: var(--surface3); color: var(--text); }
+.reorder-btn:disabled { opacity: 0.2; cursor: default; }
 
 .toggle {
   width: 32px; height: 18px;
@@ -217,9 +237,76 @@ header {
 .lang-tag {
   padding: 3px 10px; border-radius: 20px; font-size: 11px; font-family: var(--mono);
   background: var(--surface3); border: 1px solid var(--border2); color: var(--text-muted);
-  cursor: pointer; transition: all 0.15s;
+  transition: all 0.15s;
 }
-.lang-tag.active { background: var(--accent-glow); border-color: var(--accent); color: var(--accent2); }
+.lang-tag:hover { background: var(--surface2); }
+.lang-tag.active, .lang-tag[aria-pressed="true"] {
+  background: var(--accent-glow); border-color: var(--accent); color: var(--accent2);
+}
+
+/* Featured repo picker */
+.repo-list { margin-top: 10px; max-height: 240px; overflow-y: auto; }
+.repo-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px; border-radius: 6px;
+  border: 1px solid transparent;
+  transition: all 0.15s;
+}
+.repo-row:hover { background: var(--surface3); }
+.repo-row.active { border-color: var(--accent); background: var(--accent-glow); }
+.repo-row input[type="checkbox"] { flex-shrink: 0; }
+.repo-info { flex: 1; min-width: 0; }
+.repo-name { font-size: 12px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
+.repo-desc { font-size: 11px; color: var(--text-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.repo-stars { font-size: 11px; color: var(--text-muted); font-family: var(--mono); flex-shrink: 0; }
+
+/* Form controls */
+.custom-select {
+  width: 100%; height: 32px;
+  background: var(--surface2); border: 1px solid var(--border2);
+  border-radius: 7px; padding: 0 10px;
+  color: var(--text); font-family: var(--sans); font-size: 13px;
+  outline: none; transition: border-color 0.15s;
+  cursor: pointer;
+}
+.custom-select:focus { border-color: var(--accent); }
+
+.field-row { display: flex; gap: 8px; }
+.field-row .custom-field { flex: 1; }
+
+.check-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 0; font-size: 13px;
+}
+.check-row input[type="checkbox"] { cursor: pointer; }
+
+/* Advanced section */
+summary.section-label {
+  display: flex; justify-content: space-between; align-items: center;
+  cursor: pointer; list-style: none;
+}
+summary.section-label::-webkit-details-marker { display: none; }
+summary.section-label::after {
+  content: '▾'; font-size: 10px; color: var(--text-dim);
+  transition: transform 0.2s;
+}
+details[open] > summary.section-label::after { transform: rotate(180deg); }
+
+.warn-box {
+  background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3);
+  border-radius: 7px; padding: 10px; margin-bottom: 12px;
+  font-size: 12px; line-height: 1.5; color: var(--text-muted);
+}
+.warn-box strong { color: var(--amber); font-weight: 600; }
+
+.rate-pill {
+  font-size: 9px; font-family: var(--mono);
+  background: var(--surface3); border: 1px solid var(--border2);
+  border-radius: 8px; padding: 2px 6px; color: var(--text-dim);
+}
+.rate-pill.low { background: rgba(239,68,68,0.15); border-color: var(--red); color: var(--red); }
+
+.btn-sm { height: 28px; padding: 0 10px; font-size: 12px; }
 
 /* ── CENTER: PREVIEW ── */
 .panel-center {
@@ -351,6 +438,19 @@ header {
   .panel-left { width: 100%; max-height: 50vh; overflow-y: auto; border-right: none; border-bottom: 1px solid var(--border); }
   .panel-center { min-height: 60vh; }
   body, html { overflow: auto; }
+  /* the panel scrolls here, so avoid nesting a second scroller inside it */
+  .panel-scroll { overflow: visible; flex: none; }
+  .repo-list { max-height: 200px; }
+}
+
+@media (max-width: 400px) {
+  header { padding: 0 12px; }
+  .header-actions .btn { padding: 0 10px; }
+  .status-indicator { display: none; }
+  .panel-section { padding: 12px; }
+  .gh-preview { padding: 18px; }
+  #preview-pane, #raw-pane { padding: 12px; }
+  .preview-tab { padding: 0 12px; font-size: 11px; }
 }
 
 /* Stats widget shimmer */

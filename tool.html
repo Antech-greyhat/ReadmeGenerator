@@ -4,14 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>README.forge — GitHub Profile Builder</title>
-<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALWSURBVFhHxddtS5NhFAfw81VKyywt01TUtIkPa+aac82pc805py41n5gmEhwIehH5QEOWgiQUSAMpKZCCArHwmSRfWJEo1JAKA+lFL/9x3W7TCOFab677C/z+932d69znUF/zb12f9xf3Nu5yj2eHfZ5v7HNvc5f7C3e4NrnNtcFtzo/c6lznZscae+3v2Gtf4caqBfbY5thjm2W3dYZd1lfssrxgp2WaHeZnbDdPsd00yVXGx2wzTrD10kO2Gh6wxTDGZv0Im/QBNhX5mTS8aRc3GnbQ7fkOX/02utxf0Vm3hXbXBtpqP6HVuY4Wxxqu1azCa19BU/UiGirn4LG9QX3FDOqsr+G68hJOyzSulj9HjXkKdtMkqi4HUWmcQEXpI1hLxmExjKH84ijK9AGYiv0wFg2BxJurwksL+0His6vCSwrugLQzV4Qb8m+D9gpODa7X3QKJaleFF19gkLhqqvDCvJsg7Z4rwgvO94LCTUYJnp/TDRIdLhZ8dBmHPFsYjhHXZXeBRHuVxcWbjxwaQDyb8MeA52W1g8K9XQoXn/1+JEBoDT3hzz68uB9heUAez81sEQFWWBYXZx6IBniP7siZD24eCCCP52R4QeKvJouLgtsPsAqfduZBPA1F+M8YigHPTm8A7f1S5XBR7YGl6Mv+8yz1x4ZnnXOLALMsi4urNnxIgP/BM9NqQWKYkMX/KrjQMjqLhtAx+TMaYvFubHhGqgOkTTKSuCg4fzTAEjq0ah/Hk2gNfMBADHj62WpQeIySwkWT2Q+wgLZIwTW9RTTDfFAaT0uxgcQMJ4uLDncvGmAe1w+ceXPwRyQCQsFBKTz1tAUkBkhZPJYOJ4OnJJeBwtOrEvxMkhGkjc6K8ORTJSAxt6vCkxKLQWJpUIWfPFEA0jYWRXhigg4UXpeU4AnHc0FiV1OFHz+WBRKLoio8Pj4DpG2pivC4uDSQWJFV4UeOpuAPIGn0l8wCip0AAAAASUVORK5CYII=">
 <link rel="icon" type="image/png" sizes="32x32" href="image/favicon.png">
 <link rel="icon" type="image/svg+xml" href="image/favicon.svg">
 <link rel="shortcut icon" href="image/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="tool.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"
+        integrity="sha512-pmjEJQ7CveksANaAKdCJZMig7eAcCFFzE1b5XnlnxdB/vU3AOStJ5SF7w4tFuqskuU31ETnAaWTYRQOYg2WHKw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
 
@@ -42,13 +43,13 @@
       <div class="section-label">GitHub Profile URL</div>
       <div class="url-input-wrap">
         <input type="text" class="url-input" id="gh-url"
-          placeholder="github.com/username">
-        <button class="fetch-btn" id="fetch-btn" type="button" title="Fetch profile">
+          placeholder="github.com/username" autocomplete="off" spellcheck="false">
+        <button class="fetch-btn" id="fetch-btn" type="button" title="Fetch profile" aria-label="Fetch profile">
           <span>→</span>
         </button>
       </div>
       <div class="loading-bar" id="loading-bar"></div>
-      <div class="error-msg" id="error-msg"></div>
+      <div class="error-msg" id="error-msg" role="alert"></div>
     </div>
 
     <!-- Profile Card -->
@@ -64,41 +65,156 @@
       <div class="panel-section" id="customize-section" hidden>
         <div class="section-label">Customize</div>
         <div class="custom-field">
-          <label>Display Name</label>
+          <label for="c-name">Display Name</label>
           <input type="text" class="custom-input" id="c-name">
         </div>
         <div class="custom-field">
-          <label>Tagline / Title</label>
+          <label for="c-tagline">Tagline / Title</label>
           <input type="text" class="custom-input" id="c-tagline" placeholder="e.g. Full-Stack Engineer">
         </div>
         <div class="custom-field">
-          <label>Bio</label>
+          <label for="c-bio">Bio</label>
           <textarea class="custom-textarea" id="c-bio"></textarea>
         </div>
         <div class="custom-field">
-          <label>Location</label>
+          <label for="c-location">Location</label>
           <input type="text" class="custom-input" id="c-location">
         </div>
         <div class="custom-field">
-          <label>Website</label>
-          <input type="text" class="custom-input" id="c-website">
+          <label for="c-website">Website</label>
+          <input type="text" class="custom-input" id="c-website" placeholder="example.com">
         </div>
+        <div class="custom-field">
+          <label for="typing-lines">Animated Typing Lines <span class="hint">one per line</span></label>
+          <textarea class="custom-textarea" id="typing-lines"></textarea>
+        </div>
+        <div class="custom-field">
+          <label for="banner-text">Banner Text</label>
+          <input type="text" class="custom-input" id="banner-text">
+        </div>
+        <div class="custom-field">
+          <label for="learning-text">Currently Learning</label>
+          <textarea class="custom-textarea" id="learning-text"></textarea>
+        </div>
+      </div>
+
+      <!-- Socials -->
+      <div class="panel-section" id="socials-section" hidden>
+        <div class="section-label">Social Links <span class="hint">blank = omitted</span></div>
+        <div class="custom-field">
+          <label for="twitter-input">X / Twitter</label>
+          <input type="text" class="custom-input" id="twitter-input" placeholder="handle">
+        </div>
+        <div class="custom-field">
+          <label for="linkedin-input">LinkedIn</label>
+          <input type="text" class="custom-input" id="linkedin-input" placeholder="in/your-name">
+        </div>
+        <div class="custom-field">
+          <label for="email-input">Email</label>
+          <input type="email" class="custom-input" id="email-input" placeholder="you@example.com">
+        </div>
+        <div class="custom-field">
+          <label for="devto-input">dev.to</label>
+          <input type="text" class="custom-input" id="devto-input" placeholder="username">
+        </div>
+        <div class="custom-field">
+          <label for="discord-input">Discord <span class="hint">badge only</span></label>
+          <input type="text" class="custom-input" id="discord-input" placeholder="user#0000">
+        </div>
+        <div class="custom-field">
+          <label for="stackoverflow-input">Stack Overflow <span class="hint">user id</span></label>
+          <input type="text" class="custom-input" id="stackoverflow-input" placeholder="1234567">
+        </div>
+        <div class="custom-field">
+          <label for="youtube-input">YouTube</label>
+          <input type="text" class="custom-input" id="youtube-input" placeholder="channel">
+        </div>
+        <div class="custom-field">
+          <label for="website-input">Website Badge</label>
+          <input type="text" class="custom-input" id="website-input" placeholder="example.com">
+        </div>
+      </div>
+
+      <!-- Featured Projects -->
+      <div class="panel-section" id="featured-section" hidden>
+        <div class="section-label section-label-row">
+          <span>Featured Projects</span>
+          <span class="section-count" id="featured-count">0 selected</span>
+        </div>
+        <input type="text" class="custom-input" id="featured-filter"
+          placeholder="Filter repos..." autocomplete="off">
+        <div class="repo-list" id="featured-list"></div>
       </div>
 
       <!-- Sections -->
       <div class="panel-section" id="sections-section" hidden>
         <div class="section-label section-label-row">
-          <span>Sections</span>
-          <span class="section-count" id="section-count">6 active</span>
+          <span>Sections <span class="hint">▲▼ to reorder</span></span>
+          <span class="section-count" id="section-count">— active</span>
         </div>
         <div id="section-toggles"></div>
       </div>
 
       <!-- Languages -->
       <div class="panel-section" id="langs-section" hidden>
-        <div class="section-label">Tech Stack (click to toggle)</div>
+        <div class="section-label">Tech Stack <span class="hint">click to toggle</span></div>
         <div class="lang-tags" id="lang-tags"></div>
       </div>
+
+      <!-- Appearance -->
+      <div class="panel-section" id="appearance-section" hidden>
+        <div class="section-label">Appearance</div>
+        <div class="custom-field">
+          <label for="theme-select">Widget Theme</label>
+          <select class="custom-select" id="theme-select"></select>
+        </div>
+        <div class="custom-field">
+          <label for="featured-layout">Featured Layout</label>
+          <select class="custom-select" id="featured-layout">
+            <option value="table">Table</option>
+            <option value="cards">Pin Cards</option>
+          </select>
+        </div>
+        <div class="field-row">
+          <div class="custom-field">
+            <label for="trophy-rows">Trophy Rows</label>
+            <input type="number" class="custom-input" id="trophy-rows" min="1" max="6">
+          </div>
+          <div class="custom-field">
+            <label for="trophy-cols">Trophy Cols</label>
+            <input type="number" class="custom-input" id="trophy-cols" min="1" max="7">
+          </div>
+        </div>
+        <label class="check-row">
+          <input type="checkbox" id="show-views">
+          <span>Profile views counter</span>
+        </label>
+      </div>
+
+      <!-- Advanced (visible before first fetch so a rate-limited user can recover) -->
+      <details class="panel-section" id="advanced-section">
+        <summary class="section-label">
+          <span>Advanced</span>
+          <span class="rate-pill" id="rate-pill">limit —</span>
+        </summary>
+        <div class="warn-box">
+          Unauthenticated GitHub calls are capped at 60/hour. A token raises this
+          to 5,000/hour. Use a <strong>classic token with no scopes checked</strong> —
+          it only needs public data. It is stored in this browser's localStorage.
+        </div>
+        <div class="custom-field">
+          <label for="pat-input">Personal Access Token</label>
+          <div class="url-input-wrap">
+            <input type="password" class="custom-input" id="pat-input"
+              placeholder="ghp_..." autocomplete="off" spellcheck="false">
+            <button class="btn btn-ghost btn-sm" id="pat-toggle" type="button" aria-pressed="false">Show</button>
+          </div>
+        </div>
+        <div class="field-row">
+          <button class="btn btn-ghost btn-sm" id="pat-forget" type="button">Forget token</button>
+          <button class="btn btn-ghost btn-sm" id="reset-prefs" type="button">Reset prefs</button>
+        </div>
+      </details>
 
     </div><!-- /panel-scroll -->
 
@@ -106,12 +222,14 @@
 
   <!-- CENTER: PREVIEW -->
   <main class="panel-center">
-    <div class="preview-tabs">
-      <div class="preview-tab active" data-tab="preview">⬡ Preview</div>
-      <div class="preview-tab" data-tab="raw">⌘ Markdown</div>
+    <div class="preview-tabs" role="tablist">
+      <button class="preview-tab active" type="button" data-tab="preview"
+        role="tab" aria-selected="true" aria-controls="preview-pane">⬡ Preview</button>
+      <button class="preview-tab" type="button" data-tab="raw"
+        role="tab" aria-selected="false" aria-controls="raw-pane">⌘ Markdown</button>
     </div>
     <div class="preview-body">
-      <div id="preview-pane" class="active">
+      <div id="preview-pane" class="active" role="tabpanel">
         <div class="empty-state" id="empty-state">
           <div class="empty-icon">◈</div>
           <div class="empty-title">Your README awaits</div>
@@ -119,7 +237,7 @@
         </div>
         <div class="gh-preview" id="gh-preview" hidden></div>
       </div>
-      <div id="raw-pane">
+      <div id="raw-pane" role="tabpanel">
         <pre id="raw-code"></pre>
       </div>
     </div>
@@ -128,7 +246,7 @@
 </div>
 
 <!-- TOAST -->
-<div class="toast" id="toast">
+<div class="toast" id="toast" role="status" aria-live="polite">
   <span class="toast-icon" id="toast-icon">✓</span>
   <span id="toast-msg">Done!</span>
 </div>
