@@ -3,7 +3,7 @@
 ![README.forge](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,24&height=200&section=header&text=README.forge&fontSize=80&fontColor=ffffff&animation=fadeIn)
 
 [![GitHub Stars](https://img.shields.io/github/stars/Antech-greyhat/ReadmeGenerator?style=for-the-badge&logo=github&color=7C6AF7)](https://github.com/Antech-greyhat/ReadmeGenerator)
-[![License](https://img.shields.io/badge/License-MIT-7C6AF7?style=for-the-badge)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-7C6AF7?style=for-the-badge)](#-license)
 [![Made with Love](https://img.shields.io/badge/Made%20with-❤️-7C6AF7?style=for-the-badge)](https://github.com/Antech-greyhat)
 
 </div>
@@ -21,12 +21,12 @@
 | Feature | Description |
 |---------|-------------|
 | **🎨 8 Widget Themes** | Tokyo Night, Dracula, Radical, One Dark, Gruvbox, Nord, GitHub Dark, Light |
-| **📊 13 Section Types** | Banner, Typing Header, Badges, Social Links, Tech Stack, Featured Projects, Stats, Streak, Activity, Trophies, Learning, Quote |
+| **📊 13 Section Types** | Banner, Header, Typing, Badges, Social Links, Tech Stack, Featured Projects, Stats, Streak, Activity, Trophies, Learning, Quote |
 | **⚡ Zero Build** | Pure vanilla JS — no npm, no bundler, runs from `file://` |
 | **🔐 PAT Support** | Optional Personal Access Token for 5000/hr rate limit vs 60/hr |
 | **♿ Accessible** | Full keyboard navigation, ARIA labels, focus management |
 | **💾 LocalStorage** | All preferences persisted locally, including featured repos and section order |
-| **🎯 Drag to Reorder** | ▲▼ buttons on every section to customize order |
+| **🎯 Reorderable** | ▲▼ buttons on every section row to customize output order |
 | **🖼️ Featured Projects** | Table or pin-card layout with searchable repo picker |
 
 </div>
@@ -72,7 +72,7 @@ The token is stored in your browser's `localStorage` — it never leaves your ma
 
 **Architecture:**
 - **Zero dependencies** (except `marked.js` from CDN for preview)
-- **~1000 lines** of vanilla JavaScript
+- **~1170 lines** of vanilla JavaScript
 - **13 pure renderer functions** — each section is independently testable
 - **XSS-safe** — all user/API data escaped at ingress
 - **Offline-ready** — cached API responses, works without CDN
@@ -177,6 +177,6 @@ Every star helps more developers find the tool.
 
 **Made with ❤️ by Antony Mwendwa**
 
-<sub>Built in 2025 • README.forge v2.0</sub>
+<sub>Built in 2026 • README.forge v2.0</sub>
 
 </div>
