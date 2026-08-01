@@ -3,8 +3,8 @@
 ![README.forge](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,24&height=200&section=header&text=README.forge&fontSize=80&fontColor=ffffff&animation=fadeIn)
 
 [![GitHub Stars](https://img.shields.io/github/stars/Antech-greyhat/ReadmeGenerator?style=for-the-badge&logo=github&color=7C6AF7)](https://github.com/Antech-greyhat/ReadmeGenerator)
-[![License](https://img.shields.io/badge/License-MIT-7C6AF7?style=for-the-badge)](#-license)
-[![Made with Love](https://img.shields.io/badge/Made%20with-❤️-7C6AF7?style=for-the-badge)](https://github.com/Antech-greyhat)
+[![License](https://img.shields.io/badge/License-MIT-7C6AF7?style=for-the-badge)](#license)
+[![Vanilla JS](https://img.shields.io/badge/Vanilla-JS-7C6AF7?style=for-the-badge&logo=javascript&logoColor=white)](https://github.com/Antech-greyhat/ReadmeGenerator)
 
 </div>
 
@@ -14,26 +14,26 @@
 
 ---
 
-## ✨ Features
+## <img src="https://api.iconify.design/lucide/sparkles.svg?color=%237c6af7&height=24" alt="" height="24" /> Features
 
 <div align="center">
 
 | Feature | Description |
 |---------|-------------|
-| **🎨 8 Widget Themes** | Tokyo Night, Dracula, Radical, One Dark, Gruvbox, Nord, GitHub Dark, Light |
-| **📊 13 Section Types** | Banner, Header, Typing, Badges, Social Links, Tech Stack, Featured Projects, Stats, Streak, Activity, Trophies, Learning, Quote |
-| **⚡ Zero Build** | Pure vanilla JS — no npm, no bundler, runs from `file://` |
-| **🔐 PAT Support** | Optional Personal Access Token for 5000/hr rate limit vs 60/hr |
-| **♿ Accessible** | Full keyboard navigation, ARIA labels, focus management |
-| **💾 LocalStorage** | All preferences persisted locally, including featured repos and section order |
-| **🎯 Reorderable** | ▲▼ buttons on every section row to customize output order |
-| **🖼️ Featured Projects** | Table or pin-card layout with searchable repo picker |
+| <img src="https://api.iconify.design/lucide/palette.svg?color=%237c6af7&height=16" alt="" height="16" /> **8 Widget Themes** | Tokyo Night, Dracula, Radical, One Dark, Gruvbox, Nord, GitHub Dark, Light |
+| <img src="https://api.iconify.design/lucide/layout-list.svg?color=%237c6af7&height=16" alt="" height="16" /> **13 Section Types** | Banner, Header, Typing, Badges, Social Links, Tech Stack, Featured Projects, Stats, Streak, Activity, Trophies, Learning, Quote |
+| <img src="https://api.iconify.design/lucide/zap.svg?color=%237c6af7&height=16" alt="" height="16" /> **Zero Build** | Pure vanilla JS — no npm, no bundler, runs from `file://` |
+| <img src="https://api.iconify.design/lucide/key-round.svg?color=%237c6af7&height=16" alt="" height="16" /> **PAT Support** | Optional Personal Access Token for 5000/hr rate limit vs 60/hr |
+| <img src="https://api.iconify.design/lucide/accessibility.svg?color=%237c6af7&height=16" alt="" height="16" /> **Accessible** | Full keyboard navigation, ARIA labels, focus management |
+| <img src="https://api.iconify.design/lucide/hard-drive.svg?color=%237c6af7&height=16" alt="" height="16" /> **LocalStorage** | All preferences persisted locally, including featured repos and section order |
+| <img src="https://api.iconify.design/lucide/arrow-up-down.svg?color=%237c6af7&height=16" alt="" height="16" /> **Reorderable** | ▲▼ buttons on every section row to customize output order |
+| <img src="https://api.iconify.design/lucide/image.svg?color=%237c6af7&height=16" alt="" height="16" /> **Featured Projects** | Table or pin-card layout with searchable repo picker |
 
 </div>
 
 ---
 
-## 🚀 Getting Started
+## <img src="https://api.iconify.design/lucide/rocket.svg?color=%237c6af7&height=24" alt="" height="24" /> Getting Started
 
 ### Quick Start
 
@@ -58,7 +58,7 @@ The token is stored in your browser's `localStorage` — it never leaves your ma
 
 ---
 
-## 🛠️ Technical Stack
+## <img src="https://api.iconify.design/lucide/wrench.svg?color=%237c6af7&height=24" alt="" height="24" /> Technical Stack
 
 <div align="center">
 
@@ -80,7 +80,7 @@ The token is stored in your browser's `localStorage` — it never leaves your ma
 
 ---
 
-## 🎯 How It Works
+## <img src="https://api.iconify.design/lucide/workflow.svg?color=%237c6af7&height=24" alt="" height="24" /> How It Works
 
 1. **Fetch** — hits GitHub's REST API for user profile + up to 100 repos
 2. **Aggregate** — sums stars/forks, requests `/languages` for top 20–40 repos (budget-aware)
@@ -92,7 +92,7 @@ All widget URLs are pre-escaped. The output is GitHub-flavored markdown with `<h
 
 ---
 
-## 🧪 Self-Test
+## <img src="https://api.iconify.design/lucide/flask-conical.svg?color=%237c6af7&height=24" alt="" height="24" /> Self-Test
 
 Open `tool.html?selftest=1` in your browser's console. It runs 31 assertions covering:
 
@@ -108,13 +108,13 @@ All assertions log to `console.table` with PASS/FAIL.
 
 ---
 
-## 📂 Project Structure
+## <img src="https://api.iconify.design/lucide/folder-tree.svg?color=%237c6af7&height=24" alt="" height="24" /> Project Structure
 
 ```
 ReadmeGenerator/
 ├── tool.html       # UI markup (256 lines)
 ├── tool.css        # Styles (~470 lines)
-├── tool.js         # Core logic (~1190 lines)
+├── tool.js         # Core logic (~1170 lines)
 ├── image/
 │   ├── favicon.png
 │   └── favicon.svg
@@ -125,7 +125,7 @@ ReadmeGenerator/
 
 ---
 
-## 🤝 Contributing
+## <img src="https://api.iconify.design/lucide/handshake.svg?color=%237c6af7&height=24" alt="" height="24" /> Contributing
 
 Found a bug? Want a new section type? PRs welcome.
 
@@ -142,19 +142,20 @@ Found a bug? Want a new section type? PRs welcome.
 
 ---
 
-## 📜 License
+## <img src="https://api.iconify.design/lucide/scroll-text.svg?color=%237c6af7&height=24" alt="" height="24" /> License
 
 MIT License — use it, fork it, sell it. Attribution appreciated but not required.
 
 ---
 
-## 💝 Support the Developer
+## <img src="https://api.iconify.design/lucide/heart-handshake.svg?color=%237c6af7&height=24" alt="" height="24" /> Support the Developer
 
 <div align="center">
 
 ### Built by [Antony Mwendwa](https://github.com/Antech-greyhat)
 
-If this tool saved you time, **⭐ star the repo** and **follow me** for more open-source tools.
+If this tool saved you time,
+<img src="https://api.iconify.design/lucide/star.svg?color=%237c6af7&height=16" alt="" height="16" /> **star the repo** and **follow me** for more open-source tools.
 
 [![GitHub followers](https://img.shields.io/github/followers/Antech-greyhat?label=Follow&style=for-the-badge&logo=github&color=7C6AF7)](https://github.com/Antech-greyhat)
 [![Star this repo](https://img.shields.io/github/stars/Antech-greyhat/ReadmeGenerator?label=Star&style=for-the-badge&logo=github&color=7C6AF7)](https://github.com/Antech-greyhat/ReadmeGenerator)
@@ -175,7 +176,7 @@ Every star helps more developers find the tool.
 
 ![Footer Wave](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,24&height=120&section=footer)
 
-**Made with ❤️ by Antony Mwendwa**
+**Made with <img src="https://api.iconify.design/lucide/heart.svg?color=%23e11d48&height=14" alt="" height="14" /> by Antony Mwendwa**
 
 <sub>Built in 2026 • README.forge v2.0</sub>
 
